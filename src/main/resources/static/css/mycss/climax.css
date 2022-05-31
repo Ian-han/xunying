@@ -1,0 +1,472 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	color: #9d9d9d;
+	line-height: 1.5;
+	background: #333;
+}
+
+img {
+	border: 0;
+	vertical-align: middle
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+h1 {
+	font: 22px "微软雅黑", "Microsoft YaHei", Arial, Helvetica, sans-serif
+}
+
+p {
+	word-wrap: break-word
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	color: #a6a6a6;
+	text-decoration: none;
+	transition: All 1s ease;
+	-webkit-transition: All 1s ease;
+	-moz-transition: All 1s ease;
+	-ms-transition: All 1s ease;
+	-o-transition: All 1s ease;
+}
+
+a:hover {
+	color: #fff;
+}
+
+.blank {
+	height: 5px;
+	overflow: hidden;
+	width: 100%;
+	margin: auto;
+	clear: both
+}
+
+/******************** start define navbar  *******************************/
+.menu, .menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu li {
+	min-width: 140px;
+}
+
+.menu>li {
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.menu>li:first-child {
+	border-radius: 5px 0 0;
+}
+
+.menu a {
+	border-left: 3px solid rgba(0, 0, 0, 0);
+	color: #808080;
+	display: block;
+	font-family: 'Lucida Console';
+	font-size: 16px;
+	line-height: 54px;
+	padding: 0 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* onhover styles */
+.menu li:hover {
+	background-color: #1c1c1c;
+	background: -moz-linear-gradient(#1c1c1c, #1b1b1b);
+	background: -ms-linear-gradient(#1c1c1c, #1b1b1b);
+	background: -o-linear-gradient(#1c1c1c, #1b1b1b);
+	background: -webkit-linear-gradient(#1c1c1c, #1b1b1b);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c1c1c),
+		color-stop(100%, #1b1b1b));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c',
+		endColorstr='#1b1b1b');
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b')";
+	background: linear-gradient(#1c1c1c, #1b1b1b);
+}
+
+.menu li:hover>a {
+	border-radius: 5px 0 0 0;
+	border-left: 3px solid #C4302B;
+	color: #C4302B;
+}
+
+/* submenu styles */
+.submenu {
+	left: 0;
+	max-height: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 0;
+	-webkit-perspective: 400px;
+	-moz-perspective: 400px;
+	-ms-perspective: 400px;
+	-o-perspective: 400px;
+	perspective: 400px;
+}
+
+.submenu li {
+	background: -moz-linear-gradient(#292929, #252525);
+	background: -ms-linear-gradient(#292929, #252525);
+	background: -webkit-linear-gradient(#292929, #252525);
+	background: -o-linear-gradient(#292929, #252525);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #292929),
+		color-stop(100%, #252525));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929',
+		endColorstr='#252525');
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525')";
+	background: linear-gradient(#292929, #252525);
+	opacity: 0;
+	-webkit-transform: rotateY(90deg);
+	-moz-transform: rotateY(90deg);
+	-ms-transform: rotateY(90deg);
+	-o-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	-webkit-transition: opacity .4s, -webkit-transform .5s;
+	-moz-transition: opacity .4s, -moz-transform .5s;
+	-ms-transition: opacity .4s, -ms-transform .5s;
+	-o-transition: opacity .4s, -o-transform .5s;
+	transition: opacity .4s, transform .5s;
+}
+
+.menu .submenu li:hover a {
+	border-left: 3px solid #454545;
+	border-radius: 0;
+	color: #ffffff;
+}
+
+.menu>li:hover .submenu, .menu>li:focus .submenu {
+	max-height: 2000px;
+	z-index: 10;
+}
+
+.menu>li:hover .submenu li, .menu>li:focus .submenu li {
+	opacity: 1;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+
+/* CSS3 delays for transition effects */
+.menu li:hover .submenu li:nth-child(1) {
+	-webkit-transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	-ms-transition-delay: 0s;
+	-o-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.menu li:hover .submenu li:nth-child(2) {
+	-webkit-transition-delay: 50ms;
+	-moz-transition-delay: 50ms;
+	-ms-transition-delay: 50ms;
+	-o-transition-delay: 50ms;
+	transition-delay: 50ms;
+}
+
+.menu li:hover .submenu li:nth-child(3) {
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	-ms-transition-delay: 100ms;
+	-o-transition-delay: 100ms;
+	transition-delay: 100ms;
+}
+
+.menu li:hover .submenu li:nth-child(4) {
+	-webkit-transition-delay: 150ms;
+	-moz-transition-delay: 150ms;
+	-ms-transition-delay: 150ms;
+	-o-transition-delay: 150ms;
+	transition-delay: 150ms;
+}
+
+.menu li:hover .submenu li:nth-child(5) {
+	-webkit-transition-delay: 200ms;
+	-moz-transition-delay: 200ms;
+	-ms-transition-delay: 200ms;
+	-o-transition-delay: 200ms;
+	transition-delay: 200ms;
+}
+
+.menu li:hover .submenu li:nth-child(6) {
+	-webkit-transition-delay: 250ms;
+	-moz-transition-delay: 250ms;
+	-ms-transition-delay: 250ms;
+	-o-transition-delay: 250ms;
+	transition-delay: 250ms;
+}
+
+.menu li:hover .submenu li:nth-child(7) {
+	-webkit-transition-delay: 300ms;
+	-moz-transition-delay: 300ms;
+	-ms-transition-delay: 300ms;
+	-o-transition-delay: 300ms;
+	transition-delay: 300ms;
+}
+
+.menu li:hover .submenu li:nth-child(8) {
+	-webkit-transition-delay: 350ms;
+	-moz-transition-delay: 350ms;
+	-ms-transition-delay: 350ms;
+	-o-transition-delay: 350ms;
+	transition-delay: 350ms;
+}
+
+.submenu li:nth-child(1) {
+	-webkit-transition-delay: 350ms;
+	-moz-transition-delay: 350ms;
+	-ms-transition-delay: 350ms;
+	-o-transition-delay: 350ms;
+	transition-delay: 350ms;
+}
+
+.submenu li:nth-child(2) {
+	-webkit-transition-delay: 300ms;
+	-moz-transition-delay: 300ms;
+	-ms-transition-delay: 300ms;
+	-o-transition-delay: 300ms;
+	transition-delay: 300ms;
+}
+
+.submenu li:nth-child(3) {
+	-webkit-transition-delay: 250ms;
+	-moz-transition-delay: 250ms;
+	-ms-transition-delay: 250ms;
+	-o-transition-delay: 250ms;
+	transition-delay: 250ms;
+}
+
+.submenu li:nth-child(4) {
+	-webkit-transition-delay: 200ms;
+	-moz-transition-delay: 200ms;
+	-ms-transition-delay: 200ms;
+	-o-transition-delay: 200ms;
+	transition-delay: 200ms;
+}
+
+.submenu li:nth-child(5) {
+	-webkit-transition-delay: 150ms;
+	-moz-transition-delay: 150ms;
+	-ms-transition-delay: 150ms;
+	-o-transition-delay: 150ms;
+	transition-delay: 150ms;
+}
+
+.submenu li:nth-child(6) {
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	-ms-transition-delay: 100ms;
+	-o-transition-delay: 100ms;
+	transition-delay: 100ms;
+}
+
+.submenu li:nth-child(7) {
+	-webkit-transition-delay: 50ms;
+	-moz-transition-delay: 50ms;
+	-ms-transition-delay: 50ms;
+	-o-transition-delay: 50ms;
+	transition-delay: 50ms;
+}
+
+.submenu li:nth-child(8) {
+	-webkit-transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	-ms-transition-delay: 0s;
+	-o-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+/*  search  */
+.serachform {
+	overflow: hidden;
+	padding: 10px;
+	padding-left: 10px;
+}
+
+.searchform input {
+	background: rgba(0, 0, 0, 0.25) url(/img/icons.png)
+		no-repeat 3px -318px;
+	border: 1px solid #111;
+	width: 200px;
+	line-height: 30px;
+	color: #b9b9b9;
+	padding-left: 30px;
+}
+/******************** end define navbar  *******************************/
+
+/******************** start define info  *******************************/
+.info {
+	width: 1040px;
+	margin: 100px auto;
+	overflow: hidden;
+	clear: both
+}
+
+.info figcaption {
+	font: 12px "宋体", "Arial Narrow", HELVETICA;
+	padding: 20px;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	background: rgba(153, 153, 153, .8);
+	color: white;
+	opacity: 0;
+	-webkit-transition: opacity .75s ease-out;
+	-moz-transition: opacity .75s ease-out;
+	-o-transition: opacity .75s ease-out;
+	transition: opacity .75s ease-out;
+}
+
+.info figure:hover figcaption {
+	opacity: 1;
+}
+
+.info figcaption strong {
+	display: block;
+	line-height: 40px;
+}
+
+/*********card***********/
+.card {
+	-webkit-animation: pageTop 6s ease 0.5s backwards;
+	-moz-animation: pageTop 6s ease 0.5s backwards;
+	-ms-animation: pageTop 6s ease 0.5s backwards;
+	-o-animation: pageTop 6s ease 0.5s backwards;
+	animation: pageTop 6s ease 0.5s backwards;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 1), inset 0px 1px 1px
+		rgba(0, 0, 0, .7);
+	border-radius: 6px;
+	background: url(/static/img/quote-bg.png) no-repeat top
+		right rgba(42, 42, 42, 1);
+	width: 350px;
+	float: right;
+	height: 280px;
+	overflow: hidden;
+}
+
+.card h1 {
+	padding: 15px;
+	margin-top: 6px;
+	margin-bottom: -2px;
+}
+
+.card p:first-child {
+	padding: 20px 0 0 20px
+}
+
+.card p {
+	padding: 0 0 0 40px;
+	margin: 0 0 3px;
+	line-height: 28px;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+	color: #89919a;
+	-webkit-animation: animations2 5s ease-in-out 5s;
+	-moz-animation: animations2 5s ease-in-out 5s;
+	-o-animation: animations2 5s ease-in-out 5s;
+	-ms-animation: animations2 5s ease-in-out 5s;
+	animation: animations2 5s ease-in-out 5s;
+	line-height: 28px;
+}
+
+.linkmore {
+	margin: 20px 0 0 20px
+}
+
+.linkmore li a {
+	height: 50px;
+	width: 50px;
+	display: block;
+	overflow: hidden;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, .1), inset 0px 1px 1px
+		rgba(0, 0, 0, .7);
+	border-radius: 50%;
+	float: left;
+	margin: 0 6px;
+}
+
+.linkmore li a:hover {
+	opacity: 0.5;
+	-webkit-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+	-o-transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+
+.talk, .address, .email, .photos, .heart {
+	background: url(/img/icons.png) no-repeat;
+}
+
+.talk {
+	background-position: 13px 18px
+}
+
+.address {
+	background-position: 12px -22px
+}
+
+.email {
+	background-position: 12px -60px
+}
+
+.photos {
+	background-position: 12px -137px
+}
+
+.heart {
+	background-position: 13px -99px
+}
+
+/* 幻灯片 */
+.myCarousel {
+	height: 280px;
+	width: 670px;
+	overflow: hidden;
+}
+
+.carousel-control{
+	font-size:150px;
+	opacity:.2;
+}
+
+#slide-runner {
+	display: inline-block;
+	width: 670px;
+	height: 280px;
+	position: relative;
+	-webkit-animation: pageTop 6s ease 0.5s backwards;
+	-moz-animation: pageTop 6s ease 0.5s backwards;
+	-ms-animation: pageTop 6s ease 0.5s backwards;
+	-o-animation: pageTop 6s ease 0.5s backwards;
+	animation: pageTop 6s ease 0.5s backwards;
+	float: left;
+}
+
+#slide-runner figure {
+	position: absolute;
+}
+
+#fixed-modal-table-toolbar {
+	margin-top: 0px;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Contract</title>
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-table.css">
+    <link rel="stylesheet" href="/css/mycss/climax.css">
+    <link rel="stylesheet" href="/css/mycss/animation.css">
+
+
+</head>
+
+<body>
+<!-- header begin -->
+<div class="top"></div>
+<!-- header end -->
+
+
+<!-- mainbody begin -->
+<!--Add/Edit materialinfo modal-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="editModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                <h4 class="modal-title" id="myModalLabel">商品明细</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" role="form" id="contractInfoForm">
+                    <div class="form-group form-group-sm" id="contractNoDiv" style="margin-top: 20px;">
+                        <label for="contractNo" class="col-xs-11 form-label" style="width: auto;font-size: 15px">合同编号</label>
+                        <input type="text" class="form-control" id="contractNo" disabled="disabled" style="background-color: #fcf8e3"
+                        placeholder="保存后自动生成...">
+                    </div>
+                    <div class="form-group form-group-sm" id="productPurchaserDiv" style="margin-top: 20px;">
+                        <label for="productPurchaser" class="col-xs-11 form-label" style="width: auto;font-size: 15px">甲方客户</label>
+                        <input type="text" class="form-control" id="productPurchaser" style="background-color: #9d9d9d">
+                    </div>
+                    <div class="form-group form-group-sm" id="productSellerDiv" style="margin-top: 20px;">
+                        <label for="productSeller" class="col-xs-11 form-label" style="width: auto;font-size: 15px">乙方组织机构</label>
+<!--                        <input type="text" class="form-control" id="productSeller" style="background-color: #9d9d9d">-->
+                        <select id="productSeller" class="form-control"style="background-color: #9d9d9d">
+                            <option>上海迅盈物资有限公司</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-sm date" id="contractDateDiv" style="margin-top: 20px;">
+                        <label for="datepicker" class="col-xs-11 form-label" style="width: auto;font-size: 15px">合同签订日期</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker" id="datepicker"
+                                   style="background-color: #9d9d9d">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm" id="deliverAddressDiv" style="margin-top: 20px;">
+                        <label for="deliverAddress" class="col-xs-11 form-label" style="width: auto;font-size: 15px">交货地址</label>
+                        <input type="text" class="form-control" id="deliverAddress" style="background-color: #9d9d9d">
+                    </div>
+                    <div class="form-group form-group-sm" id="salesmanDiv" style="margin-top: 20px;">
+                        <label for="salesman" class="col-xs-11 form-label" style="width: auto;font-size: 15px">业务员</label>
+                        <input type="text" class="form-control" id="salesman" style="background-color: #9d9d9d">
+                    </div>
+                </form>
+                <div id="modal_toolbar" class="btn-group" style="display: block">
+                    <button id="modal_btn_add" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                    </button>
+                    <button id="modal_btn_remove" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                    </button>
+                </div>
+                <table id="tb_product_detail" class="table table-hover"></table>
+
+                <form class="form-horizontal" role="form" id="contractClauseForm">
+                    <div class="form-group form-group-sm" id="qualityClausesDiv" style="margin-top: 20px;margin-right: 550px;margin-left: 3px">
+                        <label for="qualityClauses" class="col-xs-11 form-label" style="font-size: 15px">合同条款</label>
+                        <input type="text" class="form-control input-lg" id="qualityClauses" style="background-color: #9d9d9d">
+                    </div>
+                    <div class="form-group form-group-sm" id="paymentMethodDiv" style="margin-top: 20px;margin-right: 550px;margin-left: 3px">
+                        <label for="paymentMethod" class="col-xs-11 form-label" style="font-size: 15px">付款方式</label>
+                        <input type="text" class="form-control input-lg" id="paymentMethod" style="background-color: #9d9d9d">
+                    </div>
+                    <div class="form-group form-group-sm" id="chargingMethodDiv" style="margin-top: 20px;margin-right: 550px;margin-left: 3px">
+                        <label for="chargingMethod" class="col-xs-11 form-label" style="font-size: 15px">结算方式</label>
+                        <input type="text" class="form-control input-lg" id="chargingMethod" style="background-color: #9d9d9d">
+                    </div>
+                    <div class="form-group form-group-sm" id="othersClausesDiv" style="margin-top: 20px;margin-right: 550px;margin-left: 3px">
+                        <label for="othersClauses" class="col-xs-11 form-label" style="font-size: 15px">其他约定条款</label>
+                        <input type="text" class="form-control input-lg" id="othersClauses" style="background-color: #9d9d9d">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="close-btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save-edit-btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <div id="toolbar" class="btn-group">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增记录
+        </button>
+<!--        <button id="btn_edit_remainCount" type="button" class="btn btn-default">-->
+<!--            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>更新库存-->
+<!--        </button>-->
+        <!--        <button id="btn_save" type="button" class="btn btn-default pull-right" style="margin-right: 60px">-->
+        <!--            <span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存-->
+        <!--        </button>-->
+    </div>
+    <div style="margin-top: 100px">
+        <table id="tb_contracts" class="table table-hover"></table>
+    </div>
+
+</div>
+
+<!-- mainbody end -->
+
+<!-- fotter begin -->
+<footer> </footer>
+<!-- fotter end -->
+
+<script src="/js/bootstrap/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap/bootstrap.js"></script>
+<script src="/js/bootstrap/bootstrap-table.js"></script>
+<script src="/js/bootstrap/bootstrap-datepicker.js"></script>
+<script src="/js/bootstrap/bootstrap-table-zh-CN.js"></script>
+
+<script src="/js/myjs/prelude/loginValidation.js"></script>
+<script src="/js/myjs/climax/contract.js"></script>
+<script src="/js/myjs/common.js"></script>
+
+<script type="text/javascript">
+    //在js中引入
+    $(document).ready(function () {
+        $('.top').load('./../header.html');
+    });
+</script>
+
+</body>
+</html>

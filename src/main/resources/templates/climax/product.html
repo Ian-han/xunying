@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Product</title>
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-table.css">
+    <link rel="stylesheet" href="/css/mycss/climax.css">
+    <link rel="stylesheet" href="/css/mycss/animation.css">
+
+</head>
+
+<body>
+<!-- header begin -->
+<div class="top"></div>
+<!-- header end -->
+
+
+<!-- mainbody begin -->
+<!--Add/Edit Product modal-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="editModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑产品记录</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" disabled="disabled" id="modal_id">
+                        <label for="" class="col-sm-2 control-label">序号</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" disabled="disabled" id="modal_product_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">合同编号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_contract_no">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">产品号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_product_no">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">产品名称</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_product_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">产品型号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_product_type">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">材质</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_product_texture">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label" >操作状态</label>
+                        <div class="col-sm-9">
+                            <select id="modal_oper_status" class="form-control" onchange="selectOnchang(this)">
+                                <option>售出</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">操作数量</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_oper_count">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">单位</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_oper_unit">
+                        </div>
+                    </div>
+                    <div id="modal_price_group" class="form-group" >
+                        <label for="" class="col-sm-2 control-label" >售货单价</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_sell_price">
+                        </div>
+                    </div>
+                    <div id="modal_product_purchaser_group" class="form-group" >
+                        <label for="" class="col-sm-2 control-label" >买方</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_product_purchaser">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label" >操作时间</label>
+                        <div class="col-sm-9 date-picker">
+                            <input type="text" class="form-control" id="modal_oper_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label" >经手人</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_oper_user">
+                        </div>
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="" class="col-sm-2 control-label" >剩余库存</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="text" class="form-control" disabled="disabled" id="modal_remain_count">-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label" >备注</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="modal_remark">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save-edit-btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="updateRemainCountModal">-->
+<!--    <div class="modal-dialog modal-lg" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>-->
+<!--                <h4 class="modal-title">更新物料库存</h4>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form action="" class="form-horizontal">-->
+<!--                    <div class="form-group">-->
+<!--                        &lt;!&ndash;                        <input type="hidden" class="form-control" disabled="disabled" id="modal_update_material_no">&ndash;&gt;-->
+<!--                        <label for="" class="col-sm-2 control-label">产品号</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input class="form-control" id="modal_update_product_no">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="" class="col-sm-2 control-label">库存</label>-->
+<!--                        <div class="col-sm-9">-->
+<!--                            <input type="text" class="form-control" id="modal_update_product_remain_count">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+<!--                <button type="button" class="btn btn-primary" id="update-remain-count-btn">保存</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div>
+    <div id="toolbar" class="btn-group">
+        <button id="btn_add" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增记录
+        </button>
+<!--        <button id="btn_edit_remainCount" type="button" class="btn btn-default">-->
+<!--            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>更新库存-->
+<!--        </button>-->
+        <!--        <button id="btn_save" type="button" class="btn btn-default pull-right" style="margin-right: 60px">-->
+        <!--            <span class="glyphicon glyphicon-save" aria-hidden="true"></span>保存-->
+        <!--        </button>-->
+    </div>
+    <div style="margin-top: 100px">
+        <table id="tb_product" class="table table-hover"></table>
+    </div>
+<!--    <table id="tb_product" class="table table-hover"></table>-->
+</div>
+
+<!-- mainbody end -->
+
+<!-- fotter begin -->
+<footer> </footer>
+<!-- fotter end -->
+
+<script src="/js/bootstrap/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap/bootstrap.js"></script>
+<script src="/js/bootstrap/bootstrap-table.js"></script>
+<script src="/js/bootstrap/bootstrap-datepicker.js"></script>
+<script src="/js/bootstrap/bootstrap-table-zh-CN.js"></script>
+
+<script src="/js/myjs/prelude/loginValidation.js"></script>
+<script src="/js/myjs/climax/product.js"></script>
+<script src="/js/myjs/common.js"></script>
+
+<script type="text/javascript">
+    //在js中引入
+    $(document).ready(function () {
+        $('.top').load('./../header.html');
+    });
+</script>
+
+</body>
+</html>

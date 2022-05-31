@@ -1,0 +1,15 @@
+#target files
+/target/*
+/*/target/*
+
+#testing output files
+/test-output/*
+/*/test-output/*
+**/out/*
+
+# Ignore intelij files
+.idea/
+/.idea/*
+/*.iml
+*.iml
+

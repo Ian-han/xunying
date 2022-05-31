@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+
+	color: #3F3E3C;
+	line-height: 1.5;
+	background: #333;
+}
+
+
+.transparentDiv{
+    min-height:300px;  
+    color:#fff;  
+    background:rgba(0,0,0,0.6);  
+    background:#000 9;
+    filter:Alpha(opacity=60);
+}
+
+.transparentDiv p, 
+.transparentDiv div,  
+.transparentDiv img{  
+    position:relative;
+}
+

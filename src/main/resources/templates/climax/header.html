@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Home Page</title>
+
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="/css/mycss/climax.css">
+	<link rel="stylesheet" href="/css/mycss/animation.css">
+</head>
+
+<body>
+<!--	<img src="/img/background.jpg" width="100%" height="100%"-->
+<!--		 style="z-index: -100; left: 0; top: 0">-->
+	<!-- header begin -->
+	<header>
+		<!-- ------------------------导航栏设计开始---------------------------------- -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 50px">
+			<div class="container-fluid" style="height: 50px">
+				<div class="navbar-header" style="margin-left: 20px">
+					<!------button为实现响应式布局，如果在手机上查看，点击button就可以弹出菜单---->
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!---方log的地方-->
+				</div>
+				<div id="bs-example-navbar-collapse-1" style="margin-left: 120px">
+					<ul class="nav navbar-nav menu">
+						<li>
+							<a href="./../../climax/home/">
+								首页
+								<span class="sr-only"></span>
+							</a>
+						</li>
+						<li>
+<!--							<a href="./../../climax/material/">物料系统</a>-->
+						</li>
+						<li>
+<!--							<a href="./../../climax/product/">产品流水</a>-->
+						</li>
+						<li>
+<!--							<a href="./../../climax/contract/">销售合同</a>-->
+						</li>
+						<li>
+							<a href="./../../climax/prodetails/">产品明细</a>
+						</li>
+						<li>
+<!--							<a href="./../../climax/report/">报表</a>-->
+						</li>
+
+						<li>
+							<a href="#" id="dropdownMenu1">
+								关于我
+								<span class="caret"></span>
+							</a>
+							<ul class="submenu subli">
+								<li>
+									<a href="#">公司简介</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" id = "RegLog">
+						<li>
+							<a href="./../../prelude/login/" id="loginUserId">登录</a>
+						</li>
+						<li>
+							<a href="./../../prelude/register/">注册</a>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right" id = "PersonalCenter">
+						<li>
+							<a id="UserPersonalCenter">个人中心</a>
+						</li>
+						<li>
+							<a href="./../../login" id="Logout">退出</a>
+						</li>
+					</ul>
+					<div style="text-align: right; padding-right: 120px; padding-top: 9px">
+						<form class="searchform" method="get" action="#">
+							<input type="text" name="search" value="Search" onfocus="this.value=''"
+								   onblur="this.value='Search'">
+						</form>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- header end -->
+
+
+	<script src="/js/bootstrap/jquery-3.1.1.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.js"></script>
+	<script src="/js/myjs/prelude/loginValidation.js"></script>
+	<script src="/js/myjs/common.js"></script>
+</body>
+</html>
